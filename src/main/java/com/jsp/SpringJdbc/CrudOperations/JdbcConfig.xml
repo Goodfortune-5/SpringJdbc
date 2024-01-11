@@ -1,0 +1,33 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:p="http://www.springframework.org/schema/p"
+xmlns:util="http://www.springframework.org/schema/util"
+
+ 
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-3.0.xsd
+http://www.springframework.org/schema/util 
+http://www.springframework.org/schema/util/spring-util.xsd"> 
+<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" name="ds">
+<property name="driverClassName" value ="com.mysql.cj.jdbc.Driver"/>
+<property name="url" value ="jdbc:mysql://localhost:3306/jdbcspring"/>
+<property name="username" value ="root"/>
+<property name="password" value ="root"/>
+</bean>
+<bean class="org.springframework.jdbc.core.JdbcTemplate" name="jdbcTemplate">
+<property name="dataSource">
+<ref bean="ds"/>
+</property>   
+</bean>
+<bean class="com.jsp.SpringJdbc.Dao.StudentDaoImpl" name="student1">
+<property name="jdbcTemplate" ref="jdbcTemplate"></property> 
+</bean>
+<bean class="com.jsp.SpringJdbc.Entity.Student" name="s" p:USN="1jn16is026" p:Name="Sangeetha" p:City="Hoysala Circle"/>
+  
+<bean class="com.jsp.SpringJdbc.CrudOperations.Student" name="student1" p:USN="1ah14ec031" p:Name="Varsha" p:City="Bangalore"/>
+</beans>
+ 
